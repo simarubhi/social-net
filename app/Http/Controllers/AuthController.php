@@ -37,7 +37,14 @@ class AuthController extends Controller
             return back()->with(['message' => 'Error with entered information']);
         }
 
-        return back()->with(['message' => 'User Registered']);
+        $credetials = [
+            'email' => $request->email,
+            'password' => $request->password
+        ];
+
+        Auth::attempt($credetials);
+
+        return redirect('/feed')->with(['message' => 'User Registered']);
     }
 
     public function login()
@@ -53,9 +60,16 @@ class AuthController extends Controller
         ];
 
         if (Auth::attempt($credetials)) {
-            return route('/feed');
+            return redirect('/feed');
         }
 
         return back()->with(['message' => 'Error with Email or Password']);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+
+        return redirect('/');
     }
 }

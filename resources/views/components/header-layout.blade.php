@@ -38,21 +38,39 @@
 						<ul class="navbar-nav ms-auto gap-xl-4 gap-lg-2">
 							<li class="nav-item">
 								<a
-									class="nav-link active"
-									aria-current="page"
-									{{-- href="{{ route('feed') }}" --}}
-									>Home</a
+									@if (\Route::current()->getName() == 'feed') 
+										class="nav-link active"
+										aria-current="page"
+									@endif
+									class="nav-link"
+									href="{{ route('feed') }}"
+									>My Feed</a
 								>
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">Friends</a>
+								<a
+									@if (\Route::current()->getName() == 'friends') 
+										class="nav-link active"
+										aria-current="page"
+									@endif
+									class="nav-link"
+									{{-- href="{{ route('friends') }}" --}}
+									>Friends</a
+								>							
 							</li>
 							<li class="nav-item">
-								<a class="nav-link" href="#">My Profile</a>
+								<a 
+									@if (\Route::current()->getName() == 'profile') 
+										class="nav-link active"
+										aria-current="page"
+									@endif 
+									class="nav-link" 
+									href="{{ route('profile', ['user' => Auth::user()->name]) }}" 
+									>My Profile</a>
 							</li>
-							<form action="{{ route('users.store') }}" method="POST" class="d-flex" role="search">
+							<form action="{{ route('logout') }}" method="POST" class="d-flex" role="search">
 								@csrf
-								{{-- @method('DELETE') --}}
+								@method('DELETE')
 								<button class="btn btn-danger">Logout</button>
 							</form>
 						</ul>

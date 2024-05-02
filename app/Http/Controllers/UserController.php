@@ -23,9 +23,4 @@ class UserController extends Controller
         $user = User::where('name', $name)->firstOrFail();
         return view('user.profile', ['user' => $user]);
     }
-
-    public function store(User $user)
-    {
-        return view('user.index', ['user' => $user]);
-    }
 }
