@@ -1,0 +1,10 @@
+Layout
+Blade tempaltes
+
+Routes
+
+
+
+home
+login
+register
