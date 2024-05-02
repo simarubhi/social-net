@@ -40,7 +40,7 @@
 								<a
 									class="nav-link active"
 									aria-current="page"
-									href="#"
+									{{-- href="{{ route('feed') }}" --}}
 									>Home</a
 								>
 							</li>
@@ -50,7 +50,11 @@
 							<li class="nav-item">
 								<a class="nav-link" href="#">My Profile</a>
 							</li>
-							<a href="#" class="btn btn-danger">Logout</a>
+							<form action="{{ route('users.store') }}" method="POST" class="d-flex" role="search">
+								@csrf
+								{{-- @method('DELETE') --}}
+								<button class="btn btn-danger">Logout</button>
+							</form>
 						</ul>
 					</div>
 				</div>
@@ -58,5 +62,36 @@
 		</header>
 
         {{ $slot }}
+
+		<footer class="row">
+			<nav
+				class="navbar bg-primary-subtle navbar-expand-sm d-flex flex-column"
+				data-bs-theme="dark"
+			>
+				<div class="d-flex container-xl align-items-center px-3">
+					<ul
+						class="navbar-nav mx-auto gap-xl-4 gap-lg-2 align-items-center"
+					>
+						<li class="nav-item">
+							<a
+								class="nav-link active"
+								aria-current="page"
+								href="#"
+								>Home</a
+							>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">Friends</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">My Profile</a>
+						</li>
+					</ul>
+				</div>
+				<span class="text-light mt-2 fs-10"
+					>Social Net Copyright &copy; 2024</span
+				>
+			</nav>
+		</footer>
     </body>
 </html>

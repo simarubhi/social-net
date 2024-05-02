@@ -7,8 +7,25 @@ use App\Models\User;
 
 class UserController extends Controller
 {
-    public function index(User $user)
+    public function index()
     {
-        return view('feed', ['user' => 'Mark']);
+        return view('user.index');
+    }
+
+    public function show(User $user)
+    {
+
+        return view('user.profile', ['user' => $user]);
+    }
+
+    public function showByName($name)
+    {
+        $user = User::where('name', $name)->firstOrFail();
+        return view('user.profile', ['user' => $user]);
+    }
+
+    public function store(User $user)
+    {
+        return view('user.index', ['user' => $user]);
     }
 }
