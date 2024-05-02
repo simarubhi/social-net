@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Post;
 
 class UserController extends Controller
 {
@@ -14,13 +15,13 @@ class UserController extends Controller
 
     public function show(User $user)
     {
-
         return view('user.profile', ['user' => $user]);
     }
 
     public function showByName($name)
     {
         $user = User::where('name', $name)->firstOrFail();
-        return view('user.profile', ['user' => $user]);
+        $posts = Post::query()->where('user_id', $user->id)->get();
+        return view('user.profile', ['user' => $user, 'posts' => $posts]);
     }
 }

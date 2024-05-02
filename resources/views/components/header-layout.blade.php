@@ -92,18 +92,34 @@
 					>
 						<li class="nav-item">
 							<a
+							@if (\Route::current()->getName() == 'feed') 
 								class="nav-link active"
 								aria-current="page"
-								href="#"
-								>Home</a
-							>
+							@endif
+							class="nav-link"
+							href="{{ route('feed') }}"
+							>My Feed</a
+						>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Friends</a>
-						</li>
+							<a
+							@if (\Route::current()->getName() == 'friends') 
+								class="nav-link active"
+								aria-current="page"
+							@endif
+							class="nav-link"
+							{{-- href="{{ route('friends') }}" --}}
+							>Friends</a
+						>								</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">My Profile</a>
-						</li>
+							<a 
+							@if (\Route::current()->getName() == 'profile') 
+								class="nav-link active"
+								aria-current="page"
+							@endif 
+							class="nav-link" 
+							href="{{ route('profile', ['user' => Auth::user()->name]) }}" 
+							>My Profile</a>						</li>
 					</ul>
 				</div>
 				<span class="text-light mt-2 fs-10"

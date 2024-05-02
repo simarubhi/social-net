@@ -26,188 +26,182 @@
             </div>
         </div>
 
-        <div class="container-fluid mt-4">
-            <div class="card">
-                <div class="row g-2">
-                    <div class="col-md-7">
-                        <img
-                            src="assets/sp1.jpg"
-                            alt="Post Image"
-                            class="card-img-top img-fluid md-rounded-top"
-                        />
+        @foreach ($posts as $post)
+            <div class="container-fluid mt-4">
+                <div class="card">
+                    <div class="row g-2">
+                        <div class="col-md-7">
+                            <img
+                                src="assets/sp1.jpg"
+                                alt="Post Image"
+                                class="card-img-top img-fluid md-rounded-top"
+                            />
 
-                        <div class="container-fluid">
-                            <div
-                                class="d-flex align-items-center my-2 gap-2 justify-content-between container-fluid p-0"
-                            >
+                            <div class="container-fluid">
                                 <div
-                                    class="d-flex align-items-center gap-2 col-4"
-                                >
-                                    <img
-                                        src="/assets/pfp.jpg"
-                                        alt="Profile Picture"
-                                        class="img-thumbnail rounded-circle"
-                                        style="width: 50px"
-                                    />
-                                    <span class="fw-semibold"
-                                        >OutDoorExplorer</span
-                                    >
-                                </div>
-
-                                <div
-                                    class="container-fluid d-flex justify-content-end gap-4 p-0"
+                                    class="d-flex align-items-center my-2 gap-2 justify-content-between container-fluid p-0"
                                 >
                                     <div
-                                        class="d-flex align-items-center gap-2"
+                                        class="d-flex align-items-center gap-2 col-4"
                                     >
-                                        <span
-                                            ><i
-                                                class="bi bi-heart-fill text-danger"
-                                            ></i
-                                        ></span>
-                                        <span class="d-none d-md-inline"
-                                            >5 Likes</span
+                                        <img
+                                            src="/assets/pfp.jpg"
+                                            alt="Profile Picture"
+                                            class="img-thumbnail rounded-circle"
+                                            style="width: 50px"
+                                        />
+                                        <span class="fw-semibold"
+                                            >OutDoorExplorer</span
                                         >
                                     </div>
+
                                     <div
-                                        class="d-flex align-items-center gap-2"
+                                        class="container-fluid d-flex justify-content-end gap-4 p-0"
                                     >
-                                        <span
-                                            ><i
-                                                class="bi bi-chat-right-dots text-primary"
-                                            ></i
-                                        ></span>
-                                        <span class="d-none d-md-inline"
-                                            >2 Comments</span
+                                        <div
+                                            class="d-flex align-items-center gap-2"
                                         >
+                                            <span
+                                                ><i
+                                                    class="bi bi-heart-fill text-danger"
+                                                ></i
+                                            ></span>
+                                            <span class="d-none d-md-inline"
+                                                >5 Likes</span
+                                            >
+                                        </div>
+                                        <div
+                                            class="d-flex align-items-center gap-2"
+                                        >
+                                            <span
+                                                ><i
+                                                    class="bi bi-chat-right-dots text-primary"
+                                                ></i
+                                            ></span>
+                                            <span class="d-none d-md-inline"
+                                                >2 Comments</span
+                                            >
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
-                            <div class="container-fluid mt-3">
-                                <p class="m-0 pb-3">
-                                    Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit. Ipsa
-                                    aperiam atque officia, voluptatum
-                                    similique perferendis pariatur, ea
-                                    unde saepe, porro tenetur officiis.
-                                    Voluptatum quos repellat aliquid
-                                    accusantium porro? Eaque ullam
-                                    placeat fuga fugiat omnis dolore
-                                    commodi natus nisi itaque sit!
-                                </p>
+                                <div class="container-fluid mt-3">
+                                    <p class="m-0 pb-3">
+                                        {{ $post->description }}
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-md-5">
-                        <div class="card-body">
-                            <span class="fw-semibold mb-2"
-                                >Comments</span
-                            >
-                            <div class="container-fluid p-0 mt-3">
-                                <div class="container-fluid px-0 pb-4">
-                                    <div
-                                        class="d-flex justify-content-between"
-                                    >
+                        <div class="col-md-5">
+                            <div class="card-body">
+                                <span class="fw-semibold mb-2"
+                                    >Comments</span
+                                >
+                                <div class="container-fluid p-0 mt-3">
+                                    <div class="container-fluid px-0 pb-4">
                                         <div
-                                            class="d-flex align-items-center gap-2"
+                                            class="d-flex justify-content-between"
                                         >
                                             <div
-                                                class="ratio ratio-1x1"
-                                                style="width: 50px"
+                                                class="d-flex align-items-center gap-2"
                                             >
-                                                <img
-                                                    src="/assets/pfp2.jpg"
-                                                    alt="Profile Picture"
-                                                    class="img-thumbnail rounded-circle object-fit-cover"
-                                                />
+                                                <div
+                                                    class="ratio ratio-1x1"
+                                                    style="width: 50px"
+                                                >
+                                                    <img
+                                                        src="/assets/pfp2.jpg"
+                                                        alt="Profile Picture"
+                                                        class="img-thumbnail rounded-circle object-fit-cover"
+                                                    />
+                                                </div>
+                                                <span class="fw-semibold"
+                                                    >Zebra</span
+                                                >
                                             </div>
-                                            <span class="fw-semibold"
-                                                >Zebra</span
+
+                                            <div
+                                                class="d-flex align-items-center gap-2"
                                             >
+                                                <span
+                                                    ><i
+                                                        class="bi bi-heart-fill text-danger"
+                                                    ></i
+                                                ></span>
+                                                <span class=""
+                                                    >2 Likes</span
+                                                >
+                                            </div>
                                         </div>
 
-                                        <div
-                                            class="d-flex align-items-center gap-2"
-                                        >
-                                            <span
-                                                ><i
-                                                    class="bi bi-heart-fill text-danger"
-                                                ></i
-                                            ></span>
-                                            <span class=""
-                                                >2 Likes</span
-                                            >
+                                        <div class="container-fluid mt-2">
+                                            <p class="m-0">
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing
+                                                elit. Ipsa aperiam atque
+                                                officia, voluptatum
+                                                similique perferendis
+                                                pariatur, ea unde saepe,
+                                                porro tenetur officiis.
+                                                Voluptatum quos repellat
+                                                aliquid accusantium porro?
+                                                Eaque ullam placeat fuga
+                                                fugiat omnis dolore commodi
+                                                natus nisi itaque sit!
+                                            </p>
                                         </div>
                                     </div>
-
-                                    <div class="container-fluid mt-2">
-                                        <p class="m-0">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur adipisicing
-                                            elit. Ipsa aperiam atque
-                                            officia, voluptatum
-                                            similique perferendis
-                                            pariatur, ea unde saepe,
-                                            porro tenetur officiis.
-                                            Voluptatum quos repellat
-                                            aliquid accusantium porro?
-                                            Eaque ullam placeat fuga
-                                            fugiat omnis dolore commodi
-                                            natus nisi itaque sit!
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="container-fluid px-0 pb-4">
-                                    <div
-                                        class="d-flex justify-content-between"
-                                    >
+                                    <div class="container-fluid px-0 pb-4">
                                         <div
-                                            class="d-flex align-items-center gap-2"
+                                            class="d-flex justify-content-between"
                                         >
                                             <div
-                                                class="ratio ratio-1x1"
-                                                style="width: 50px"
+                                                class="d-flex align-items-center gap-2"
                                             >
-                                                <img
-                                                    src="/assets/pfp3.jpg"
-                                                    alt="Profile Picture"
-                                                    class="img-thumbnail rounded-circle object-fit-cover"
-                                                />
+                                                <div
+                                                    class="ratio ratio-1x1"
+                                                    style="width: 50px"
+                                                >
+                                                    <img
+                                                        src="/assets/pfp3.jpg"
+                                                        alt="Profile Picture"
+                                                        class="img-thumbnail rounded-circle object-fit-cover"
+                                                    />
+                                                </div>
+                                                <span class="fw-semibold"
+                                                    >CityPics</span
+                                                >
                                             </div>
-                                            <span class="fw-semibold"
-                                                >CityPics</span
+
+                                            <div
+                                                class="d-flex align-items-center gap-2"
                                             >
+                                                <span
+                                                    ><i
+                                                        class="bi bi-heart-fill text-danger"
+                                                    ></i
+                                                ></span>
+                                                <span class="">1 Like</span>
+                                            </div>
                                         </div>
 
-                                        <div
-                                            class="d-flex align-items-center gap-2"
-                                        >
-                                            <span
-                                                ><i
-                                                    class="bi bi-heart-fill text-danger"
-                                                ></i
-                                            ></span>
-                                            <span class="">1 Like</span>
+                                        <div class="container-fluid mt-2">
+                                            <p class="m-0">
+                                                Lorem ipsum dolor sit amet
+                                                consectetur adipisicing
+                                                elit. Ipsa aperiam atque
+                                                officia, voluptatum
+                                                similique perferendis
+                                                pariatur, ea unde saepe,
+                                                porro tenetur officiis.
+                                                Voluptatum quos repellat
+                                                aliquid accusantium porro?
+                                                Eaque ullam placeat fuga
+                                                fugiat omnis dolore commodi
+                                                natus nisi itaque sit!
+                                            </p>
                                         </div>
-                                    </div>
-
-                                    <div class="container-fluid mt-2">
-                                        <p class="m-0">
-                                            Lorem ipsum dolor sit amet
-                                            consectetur adipisicing
-                                            elit. Ipsa aperiam atque
-                                            officia, voluptatum
-                                            similique perferendis
-                                            pariatur, ea unde saepe,
-                                            porro tenetur officiis.
-                                            Voluptatum quos repellat
-                                            aliquid accusantium porro?
-                                            Eaque ullam placeat fuga
-                                            fugiat omnis dolore commodi
-                                            natus nisi itaque sit!
-                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -215,6 +209,6 @@
                     </div>
                 </div>
             </div>
-        </div>
+        @endforeach
     </div>
 </x-header-layout>
