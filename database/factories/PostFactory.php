@@ -18,7 +18,7 @@ class PostFactory extends Factory
     {
         return [
             'description' => fake()->realText(1000),
-            'user_id' => 2,
+            'user_id' => random_int(1, 8),
         ];
     }
 }
