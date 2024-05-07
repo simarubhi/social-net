@@ -16,11 +16,12 @@
                         <span>4 Comments</span>
                     </div>
                     <div class="d-flex justify-content-start gap-4">
-                        <a href="#" class="btn btn-secondary"
-                            >Message</a
-                        >
-                        <a href="#" class="btn btn-info">Add Friend</a>
+                        @if (Auth::user()->name == $user->name)
                         <a href="#" class="btn btn-warning">New Post</a>
+                        @else
+                        <a href="#" class="btn btn-secondary">Message</a>
+                        <a href="#" class="btn btn-info">Add Friend</a>
+                        @endif
                     </div>
                 </div>
             </div>
