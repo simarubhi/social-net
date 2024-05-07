@@ -21,7 +21,8 @@ class UserController extends Controller
     public function showByName($name)
     {
         $user = User::where('name', $name)->firstOrFail();
-        $posts = Post::query()->where('user_id', $user->id)->get();
+        // $posts = Post::query()->where('user_id', $user->id)->get();
+        $posts = $user->posts;
         return view('user.profile', ['user' => $user, 'posts' => $posts]);
     }
 }

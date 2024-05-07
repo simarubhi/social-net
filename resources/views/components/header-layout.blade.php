@@ -109,8 +109,8 @@
 							@endif
 							class="nav-link"
 							{{-- href="{{ route('friends') }}" --}}
-							>Friends</a
-						>								</li>
+							>Friends</a>								
+						</li>
 						<li class="nav-item">
 							<a 
 							@if (\Route::current()->getName() == 'profile') 
@@ -119,7 +119,8 @@
 							@endif 
 							class="nav-link" 
 							href="{{ route('profile', ['user' => Auth::user()->name]) }}" 
-							>My Profile</a>						</li>
+							>My Profile</a>						
+						</li>
 					</ul>
 				</div>
 				<span class="text-light mt-2 fs-10"
