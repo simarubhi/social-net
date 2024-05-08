@@ -11,11 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::dropIfExists('connections');
+        // Schema::dropIfExists('connections');
         Schema::create('connections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('follower_id')->constrained('users')->casdadeOnDelete();
-            $table->foreignId('followed_id')->constrained('users')->casdadeOnDelete();
+            $table->foreignId('follower_id')->constrained('users')->cascadeOnDelete();
+            $table->foreignId('followed_id')->constrained('users')->cascadeOnDelete();
             $table->unique(['follower_id', 'followed_id']);
             $table->timestamps();
         });
