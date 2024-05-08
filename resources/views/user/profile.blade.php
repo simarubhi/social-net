@@ -14,13 +14,20 @@
                         <span>2 Posts</span>
                         <span>10 Likes</span>
                         <span>4 Comments</span>
+                        <span>{{Auth::user()->name}}</span>
+                        <span>{{Auth::user()->id}}</span>
+                        <span>{{$user->name}}</span>
+                        <span>{{$user->id}}</span>
                     </div>
                     <div class="d-flex justify-content-start gap-4">
                         @if (Auth::user()->name == $user->name)
-                        <a href="#" class="btn btn-warning">New Post</a>
+                            <a href="#" class="btn btn-warning">New Post</a>
                         @else
-                        <a href="#" class="btn btn-secondary">Message</a>
-                        <a href="#" class="btn btn-info">Add Friend</a>
+                            <a href="#" class="btn btn-secondary">Message</a>
+                            <form method="POST" action="{{ route('connection.store', ['user1_id' => Auth::user()->id, 'user2_id' => $user->id ]) }}">
+                                @csrf
+                                <button type="submit" class="btn btn-info">Add Friend</button>
+                            </form>
                         @endif
                     </div>
                 </div>

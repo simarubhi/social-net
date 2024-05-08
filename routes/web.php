@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\ConnectionController;
 
 
 /*
@@ -21,12 +22,23 @@ Route::get('/', function () {
 })->name('choice');
 
 Route::middleware('auth')->group(function() {
-    Route::resource('users', UserController::class);
+    Route::resource('users', UserController::class)->names([
+        'index' => 'user.index',
+        'show' => 'user.show',
+        'showByName' => 'user.showByName'
+    ]);
+    
     Route::get('users/{user:name}', [UserController::class, 'showByName'])->name('profile');
 
     Route::get('/feed', function() {
         return view('user.feed');
     })->name('feed');
+
+    Route::resource('connections', ConnectionController::class)->names([
+        'index' => 'connection.index',
+        'show' => 'connection.show',
+        'store' => 'connection.store'
+    ]);;
 
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });
