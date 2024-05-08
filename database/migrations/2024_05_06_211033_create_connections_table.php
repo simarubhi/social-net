@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::dropIfExists('connections');
         Schema::create('connections', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user1_id')->constrained('users')->casdadeOnDelete();
-            $table->foreignId('user2_id')->constrained('users')->casdadeOnDelete();
-            $table->unique(['user1_id', 'user2_id']);
+            $table->foreignId('follower_id')->constrained('users')->casdadeOnDelete();
+            $table->foreignId('followed_id')->constrained('users')->casdadeOnDelete();
+            $table->unique(['follower_id', 'followed_id']);
             $table->timestamps();
         });
         
@@ -28,8 +28,8 @@ return new class extends Migration
     public function down(): void
     {
         // Schema::table('connections', function (Blueprint $table) {
-        //     $table->dropForeign('user1_id');
-        //     $table->dropForeign('user2_id');
+        //     $table->dropForeign('follower_id');
+        //     $table->dropForeign('followed_id');
         // });
         Schema::dropIfExists('connections');
     }

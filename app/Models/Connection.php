@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Connection extends Model
 {
     use HasFactory;
+
+    public function user()
+    {
+        return $this->hasOne(User::class);
+    }
 }

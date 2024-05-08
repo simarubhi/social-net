@@ -9,31 +9,31 @@ class ConnectionController extends Controller
 {
     public function index()
     {
-        return view('user.feed');
+        return view('user.friends');
     }
     
     public function show()
     {
-        return view('user.feed');
+        return view('user.friends');
     }
 
     public function store(Request $request)
     {
 
         $validated = $request->validate([
-            'user1_id' => 'required|different:user2_id',
-            'user2_id' => 'required|different:user1_id',
+            'follower_id' => 'required|different:followed_id',
+            'followed_id' => 'required|different:follower_id',
         ]);
 
         $connection = new Connection();
 
-        $connection->user1_id = $request->user1_id;
-        $connection->user2_id = $request->user2_id;
+        $connection->follower_id = $request->follower_id;
+        $connection->followed_id = $request->followed_id;
 
         if (!$connection->save()) {
             return back()->with(['message' => 'Error with creating connection']);
         }
-
-        return view('user.feed');
+        
+        return back()->with(['message' => 'User Followed']);
     }
 }

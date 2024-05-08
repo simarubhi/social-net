@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use App\models\Post;
+use App\models\Connection;
 
 class User extends Authenticatable
 {
@@ -47,5 +48,20 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasMany(Post::class);
+    }
+
+    public function connections()
+    {
+        return $this->hasMany(Connection::class, 'follower_id');
+    }
+
+    public function friends()
+    {
+        // return $this->hasMany(Connection::class, 'follower_id', 'id')->pluck('followed_id')->toArray();
+        return ($this->connections->pluck('followed_id'));
+
+        // return $this->connections->every(function($connection) {
+            // return $connection->followed_id;
+        // }); 
     }
 }

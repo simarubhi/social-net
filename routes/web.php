@@ -40,6 +40,8 @@ Route::middleware('auth')->group(function() {
         'store' => 'connection.store'
     ]);;
 
+    Route::get('/friends', [ConnectionController::class, 'show'])->name('friends');
+
     Route::delete('/logout', [AuthController::class, 'logout'])->name('logout');
 });
 

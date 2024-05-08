@@ -17,7 +17,7 @@
 			>
 				<div class="d-flex container-xl align-items-center px-3">
 					<a
-						href="#"
+						href="{{ route('feed') }}"
 						class="navbar-brand text-light fw-semibold fs-2"
 						>Social Net</a
 					>
@@ -54,7 +54,7 @@
 										aria-current="page"
 									@endif
 									class="nav-link"
-									{{-- href="{{ route('friends') }}" --}}
+									href="{{ route('friends') }}"
 									>Friends</a
 								>							
 							</li>
@@ -141,7 +141,7 @@
 								aria-current="page"
 							@endif
 							class="nav-link"
-							{{-- href="{{ route('friends') }}" --}}
+							href="{{ route('friends') }}"
 							>Friends</a>								
 						</li>
 						<li class="nav-item">
